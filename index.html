@@ -1,290 +1,944 @@
-<!-- 💗 PARUL'S BIRTHDAY COUNTDOWN -->
-<section class="birthday-countdown">
-  <div class="countdown-glow"></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <p class="countdown-small">✨ Something beautiful is almost here ✨</p>
+<title>For Parul ❤️</title>
 
-  <h2>
-    Counting down to
-    <span>Parul's 22nd Birthday</span> 🎂❤️
-  </h2>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <p class="countdown-message">
-    Bas thoda sa aur wait... 🥹<br>
-    because the most beautiful day is almost here.
-  </p>
-
-  <div class="countdown-boxes">
-    <div class="time-box">
-      <span id="days">00</span>
-      <small>Days</small>
-    </div>
-
-    <div class="colon">:</div>
-
-    <div class="time-box">
-      <span id="hours">00</span>
-      <small>Hours</small>
-    </div>
-
-    <div class="colon">:</div>
-
-    <div class="time-box">
-      <span id="minutes">00</span>
-      <small>Minutes</small>
-    </div>
-
-    <div class="colon">:</div>
-
-    <div class="time-box">
-      <span id="seconds">00</span>
-      <small>Seconds</small>
-    </div>
-  </div>
-
-  <div id="birthday-message" class="birthday-message">
-    ❤️ Happy Birthday, Parul ❤️
-  </div>
-</section>
-
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
 
 <style>
-  .birthday-countdown {
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-    padding: 80px 20px;
-    min-height: 500px;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --pink:#ff6f9f;
+    --deep:#351b29;
+    --soft:#fff4f7;
+    --glass:rgba(255,255,255,.62);
+}
+
+body{
+    min-height:100vh;
+    overflow-x:hidden;
+    font-family:"DM Sans",sans-serif;
+    color:var(--deep);
 
     background:
-      radial-gradient(circle at 50% 20%, #ffd6e7 0%, transparent 35%),
-      linear-gradient(135deg, #fff5f8, #ffe7ef, #fff);
-    font-family: "Poppins", sans-serif;
-    color: #5a2639;
-  }
+      radial-gradient(circle at 15% 15%,#ffd7e5 0,transparent 30%),
+      radial-gradient(circle at 85% 80%,#ffe1ec 0,transparent 30%),
+      linear-gradient(135deg,#fff8fa,#ffeaf1,#fff);
+}
 
-  .countdown-glow {
-    position: absolute;
-    width: 350px;
-    height: 350px;
-    border-radius: 50%;
-    background: rgba(255, 105, 150, 0.18);
-    filter: blur(70px);
-    animation: glow 4s ease-in-out infinite alternate;
-  }
 
-  .countdown-small {
-    position: relative;
-    font-size: 14px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #c65b80;
-    margin-bottom: 15px;
-  }
+/* =========================
+   FLOATING HEARTS
+========================= */
 
-  .birthday-countdown h2 {
-    position: relative;
-    max-width: 700px;
-    margin: 0;
-    font-family: "Playfair Display", serif;
-    font-size: clamp(35px, 6vw, 65px);
-    line-height: 1.15;
-  }
+.hearts{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:0;
+}
 
-  .birthday-countdown h2 span {
-    display: block;
-    color: #e75480;
-    font-style: italic;
-  }
+.heart{
+    position:absolute;
+    bottom:-50px;
+    opacity:0;
+    animation:floatHeart linear infinite;
+}
 
-  .countdown-message {
-    position: relative;
-    margin: 20px 0 35px;
-    font-size: 16px;
-    line-height: 1.7;
-    color: #7b4a5b;
-  }
+@keyframes floatHeart{
 
-  .countdown-boxes {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
+    0%{
+        transform:translateY(0) rotate(0deg) scale(.8);
+        opacity:0;
+    }
 
-  .time-box {
-    width: 110px;
-    height: 115px;
+    15%{
+        opacity:.65;
+    }
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    85%{
+        opacity:.5;
+    }
 
-    border-radius: 25px;
+    100%{
+        transform:translateY(-110vh) rotate(360deg) scale(1.2);
+        opacity:0;
+    }
+}
 
-    background: rgba(255, 255, 255, 0.72);
-    backdrop-filter: blur(15px);
 
-    border: 1px solid rgba(231, 84, 128, 0.18);
+/* =========================
+   MAIN
+========================= */
+
+.wrapper{
+    position:relative;
+    z-index:2;
+
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:35px 18px;
+}
+
+.card{
+
+    width:min(900px,100%);
+
+    padding:65px 35px;
+
+    text-align:center;
+
+    border-radius:40px;
+
+    background:var(--glass);
+    backdrop-filter:blur(25px);
+    -webkit-backdrop-filter:blur(25px);
+
+    border:1px solid rgba(255,255,255,.8);
 
     box-shadow:
-      0 15px 40px rgba(160, 60, 100, 0.12),
-      inset 0 0 20px rgba(255,255,255,0.6);
+        0 30px 80px rgba(116,45,72,.13),
+        inset 0 1px rgba(255,255,255,.9);
 
-    transition: 0.3s ease;
-  }
+    animation:cardIn 1s ease;
+}
 
-  .time-box:hover {
-    transform: translateY(-8px) scale(1.04);
-    box-shadow: 0 20px 45px rgba(231, 84, 128, 0.25);
-  }
+@keyframes cardIn{
 
-  .time-box span {
-    font-size: 38px;
-    font-weight: 700;
-    color: #e75480;
-    line-height: 1;
-  }
-
-  .time-box small {
-    margin-top: 10px;
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #8d596b;
-  }
-
-  .colon {
-    font-size: 35px;
-    font-weight: bold;
-    color: #e75480;
-    animation: blink 1s infinite;
-  }
-
-  .birthday-message {
-    display: none;
-    position: relative;
-    margin-top: 35px;
-    font-family: "Playfair Display", serif;
-    font-size: clamp(30px, 5vw, 55px);
-    color: #e75480;
-    animation: birthdayPop 1s ease forwards;
-  }
-
-  @keyframes blink {
-    50% {
-      opacity: 0.25;
-    }
-  }
-
-  @keyframes glow {
-    from {
-      transform: scale(0.9);
-      opacity: 0.5;
+    from{
+        opacity:0;
+        transform:translateY(30px) scale(.97);
     }
 
-    to {
-      transform: scale(1.15);
-      opacity: 0.9;
+    to{
+        opacity:1;
+        transform:none;
     }
-  }
+}
 
-  @keyframes birthdayPop {
-    0% {
-      transform: scale(0.5);
-      opacity: 0;
+
+/* =========================
+   TOP LABEL
+========================= */
+
+.eyebrow{
+
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    padding:9px 16px;
+
+    border-radius:50px;
+
+    background:rgba(255,255,255,.7);
+
+    color:#b64d73;
+
+    font-size:12px;
+    font-weight:700;
+
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+
+    box-shadow:0 8px 25px rgba(180,70,110,.08);
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+h1{
+
+    margin-top:25px;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:clamp(48px,9vw,90px);
+
+    line-height:.95;
+
+    font-weight:500;
+}
+
+h1 span{
+    display:block;
+    color:var(--pink);
+    font-style:italic;
+}
+
+.subtitle{
+
+    max-width:580px;
+
+    margin:25px auto 35px;
+
+    color:#765465;
+
+    font-size:16px;
+    line-height:1.8;
+}
+
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+.countdown{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    gap:12px;
+
+    margin:35px auto;
+
+    flex-wrap:wrap;
+}
+
+.time{
+
+    width:125px;
+    height:125px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    border-radius:28px;
+
+    background:rgba(255,255,255,.72);
+
+    border:1px solid rgba(255,255,255,.9);
+
+    box-shadow:
+        0 15px 35px rgba(120,50,80,.10);
+
+    transition:.3s;
+}
+
+.time:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+        0 25px 45px rgba(231,84,128,.18);
+}
+
+.number{
+
+    font-size:42px;
+    font-weight:700;
+
+    color:#e95785;
+
+    line-height:1;
+}
+
+.label{
+
+    margin-top:9px;
+
+    font-size:10px;
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+
+    color:#946174;
+}
+
+.separator{
+
+    font-size:32px;
+
+    color:#e95785;
+
+    animation:pulse 1s infinite;
+}
+
+@keyframes pulse{
+    50%{opacity:.25}
+}
+
+
+/* =========================
+   LITTLE NOTE
+========================= */
+
+.note{
+
+    margin:30px auto;
+
+    max-width:620px;
+
+    padding:20px 25px;
+
+    border-radius:22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.7),
+            rgba(255,238,245,.75)
+        );
+
+    color:#684353;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:18px;
+
+    line-height:1.6;
+
+    box-shadow:0 12px 35px rgba(100,40,70,.07);
+}
+
+.note strong{
+    color:#e95785;
+}
+
+
+/* =========================
+   NOTE BUTTONS
+========================= */
+
+.notes-title{
+
+    margin-top:50px;
+    margin-bottom:18px;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:25px;
+}
+
+.note-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+}
+
+.note-btn{
+
+    border:0;
+
+    padding:13px 20px;
+
+    border-radius:50px;
+
+    background:white;
+
+    color:#9b4d69;
+
+    font-family:inherit;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    box-shadow:0 8px 25px rgba(100,40,70,.08);
+
+    transition:.3s;
+}
+
+.note-btn:hover{
+
+    transform:translateY(-4px) rotate(-1deg);
+
+    background:#fff0f5;
+}
+
+
+/* =========================
+   NOTE POPUP
+========================= */
+
+.overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(50,20,35,.3);
+
+    backdrop-filter:blur(8px);
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:20;
+
+    padding:20px;
+}
+
+.overlay.show{
+    display:flex;
+}
+
+.popup{
+
+    width:min(500px,100%);
+
+    padding:45px 30px;
+
+    text-align:center;
+
+    border-radius:32px;
+
+    background:#fffafb;
+
+    box-shadow:0 30px 100px rgba(60,20,40,.25);
+
+    animation:popup .4s ease;
+}
+
+@keyframes popup{
+
+    from{
+        opacity:0;
+        transform:scale(.8) translateY(20px);
     }
 
-    70% {
-      transform: scale(1.1);
+    to{
+        opacity:1;
+        transform:none;
+    }
+}
+
+.popup-heart{
+
+    font-size:45px;
+
+    margin-bottom:15px;
+}
+
+.popup h2{
+
+    font-family:"Playfair Display",serif;
+
+    color:#e95785;
+
+    font-size:32px;
+
+    margin-bottom:15px;
+}
+
+.popup p{
+
+    color:#725362;
+
+    line-height:1.8;
+
+    font-size:16px;
+}
+
+.close{
+
+    margin-top:25px;
+
+    padding:11px 25px;
+
+    border:0;
+
+    border-radius:50px;
+
+    background:#e95785;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-weight:600;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.signature{
+
+    margin-top:45px;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:20px;
+
+    color:#795061;
+}
+
+.signature span{
+    color:#e95785;
+}
+
+
+/* =========================
+   MIDNIGHT
+========================= */
+
+.birthday{
+
+    display:none;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:clamp(35px,7vw,65px);
+
+    color:#e95785;
+
+    animation:birthday 1s ease;
+}
+
+@keyframes birthday{
+
+    0%{
+        transform:scale(.3);
+        opacity:0;
     }
 
-    100% {
-      transform: scale(1);
-      opacity: 1;
-    }
-  }
-
-  @media (max-width: 600px) {
-    .birthday-countdown {
-      padding: 60px 15px;
+    70%{
+        transform:scale(1.1);
     }
 
-    .time-box {
-      width: 75px;
-      height: 85px;
-      border-radius: 18px;
+    100%{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    .card{
+        padding:45px 18px;
+        border-radius:30px;
     }
 
-    .time-box span {
-      font-size: 28px;
+    .time{
+        width:75px;
+        height:85px;
+        border-radius:20px;
     }
 
-    .colon {
-      font-size: 25px;
+    .number{
+        font-size:27px;
     }
 
-    .countdown-boxes {
-      gap: 5px;
+    .separator{
+        font-size:22px;
     }
-  }
+
+    .subtitle{
+        font-size:14px;
+    }
+
+    .note{
+        font-size:16px;
+    }
+}
+
 </style>
+</head>
+
+
+<body>
+
+
+<!-- FLOATING HEARTS -->
+
+<div class="hearts" id="hearts"></div>
+
+
+<div class="wrapper">
+
+<div class="card">
+
+
+<div class="eyebrow">
+    ✨ A little surprise for Parul
+</div>
+
+
+<h1>
+
+    Someone's
+    <span>22nd Birthday</span>
+
+</h1>
+
+
+<p class="subtitle">
+
+    The countdown has officially begun...
+    <br>
+
+    And honestly, I'm more excited than I should be. 🥹❤️
+
+</p>
+
+
+<!-- COUNTDOWN -->
+
+<div class="countdown" id="countdown">
+
+    <div class="time">
+        <div class="number" id="days">00</div>
+        <div class="label">Days</div>
+    </div>
+
+    <div class="separator">:</div>
+
+    <div class="time">
+        <div class="number" id="hours">00</div>
+        <div class="label">Hours</div>
+    </div>
+
+    <div class="separator">:</div>
+
+    <div class="time">
+        <div class="number" id="minutes">00</div>
+        <div class="label">Minutes</div>
+    </div>
+
+    <div class="separator">:</div>
+
+    <div class="time">
+        <div class="number" id="seconds">00</div>
+        <div class="label">Seconds</div>
+    </div>
+
+</div>
+
+
+<!-- LITTLE MESSAGE -->
+
+<div class="note">
+
+    "Some people make ordinary days feel special...
+
+    <br>
+
+    <strong>
+    You somehow make every day feel a little more beautiful. ❤️
+    </strong>
+
+</div>
+
+
+<!-- SECRET NOTES -->
+
+<div class="notes-title">
+    💌 Little notes for you
+</div>
+
+
+<div class="note-buttons">
+
+    <button class="note-btn" onclick="openNote(1)">
+        🌷 Open me
+    </button>
+
+    <button class="note-btn" onclick="openNote(2)">
+        🥹 One more
+    </button>
+
+    <button class="note-btn" onclick="openNote(3)">
+        ❤️ Secret note
+    </button>
+
+    <button class="note-btn" onclick="openNote(4)">
+        😏 Last one
+    </button>
+
+</div>
+
+
+<div class="signature">
+
+    Made with too much love by
+    <span>Manas ❤️</span>
+
+</div>
+
+
+<!-- MIDNIGHT MESSAGE -->
+
+<div class="birthday" id="birthday">
+
+    🎂 Happy 22nd Birthday, Parul! ❤️
+
+</div>
+
+
+</div>
+</div>
+
+
+<!-- POPUP -->
+
+<div class="overlay" id="overlay">
+
+    <div class="popup">
+
+        <div class="popup-heart" id="popupHeart">
+            💗
+        </div>
+
+        <h2 id="popupTitle">
+            A little note...
+        </h2>
+
+        <p id="popupText">
+            You found it.
+        </p>
+
+        <button class="close" onclick="closeNote()">
+            Keep this secret 🤫
+        </button>
+
+    </div>
+
+</div>
 
 
 <script>
-  // 🎂 Parul's Birthday
-  // 15 September 2026, 12:00 AM IST
 
-  const birthday = new Date("2026-09-15T00:00:00+05:30").getTime();
+/* =========================
+   BIRTHDAY DATE
+========================= */
 
-  const timer = setInterval(function () {
+const birthday =
+    new Date("2026-09-15T00:00:00+05:30").getTime();
 
-    const now = new Date().getTime();
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+const timer = setInterval(() => {
+
+    const now = Date.now();
+
     const distance = birthday - now;
 
-    if (distance <= 0) {
-      clearInterval(timer);
 
-      document.getElementById("days").textContent = "00";
-      document.getElementById("hours").textContent = "00";
-      document.getElementById("minutes").textContent = "00";
-      document.getElementById("seconds").textContent = "00";
+    if(distance <= 0){
 
-      document.getElementById("birthday-message").style.display = "block";
+        clearInterval(timer);
 
-      return;
+        document.getElementById("countdown").style.display="none";
+
+        document.getElementById("birthday").style.display="block";
+
+        createCelebration();
+
+        return;
     }
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor(
-      (distance / (1000 * 60 * 60)) % 24
-    );
-    const minutes = Math.floor(
-      (distance / (1000 * 60)) % 60
-    );
-    const seconds = Math.floor(
-      (distance / 1000) % 60
-    );
+
+    const days =
+        Math.floor(distance / (1000*60*60*24));
+
+    const hours =
+        Math.floor((distance / (1000*60*60)) % 24);
+
+    const minutes =
+        Math.floor((distance / (1000*60)) % 60);
+
+    const seconds =
+        Math.floor((distance / 1000) % 60);
+
 
     document.getElementById("days").textContent =
-      String(days).padStart(2, "0");
+        String(days).padStart(2,"0");
 
     document.getElementById("hours").textContent =
-      String(hours).padStart(2, "0");
+        String(hours).padStart(2,"0");
 
     document.getElementById("minutes").textContent =
-      String(minutes).padStart(2, "0");
+        String(minutes).padStart(2,"0");
 
     document.getElementById("seconds").textContent =
-      String(seconds).padStart(2, "0");
+        String(seconds).padStart(2,"0");
 
-  }, 1000);
+},1000);
+
+
+/* =========================
+   LITTLE NOTES
+========================= */
+
+const notes = {
+
+    1:{
+        heart:"🌷",
+        title:"For my favourite person",
+        text:
+        "I don't know when it happened, but somewhere between all our random conversations and silly moments, you became one of my favourite parts of life. ❤️"
+    },
+
+    2:{
+        heart:"🥹",
+        title:"One tiny confession",
+        text:
+        "Talking to you has this weird ability to make time disappear. And honestly... I wouldn't mind losing track of time with you again and again."
+    },
+
+    3:{
+        heart:"💌",
+        title:"Secretly...",
+        text:
+        "If I could keep one thing from all our memories, I wouldn't choose a photograph. I'd choose one of those random moments where we were just talking and neither of us wanted the conversation to end."
+    },
+
+    4:{
+        heart:"😏",
+        title:"Okay, last one...",
+        text:
+        "You're turning 22 tomorrow, but don't get too excited... because I still plan on annoying you, flirting with you, and stealing your attention for many more birthdays. ❤️"
+    }
+
+};
+
+
+function openNote(number){
+
+    const note = notes[number];
+
+    document.getElementById("popupHeart").textContent =
+        note.heart;
+
+    document.getElementById("popupTitle").textContent =
+        note.title;
+
+    document.getElementById("popupText").textContent =
+        note.text;
+
+    document.getElementById("overlay").classList.add("show");
+}
+
+
+function closeNote(){
+
+    document.getElementById("overlay").classList.remove("show");
+
+}
+
+
+/* close when clicking outside */
+
+document.getElementById("overlay").addEventListener("click",(e)=>{
+
+    if(e.target.id === "overlay"){
+        closeNote();
+    }
+
+});
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+function createHeart(){
+
+    const heart = document.createElement("div");
+
+    heart.className="heart";
+
+    heart.textContent =
+        ["♡","♥","❤","💗","✨"][Math.floor(Math.random()*5)];
+
+    heart.style.left =
+        Math.random()*100 + "%";
+
+    heart.style.fontSize =
+        (12 + Math.random()*22) + "px";
+
+    heart.style.animationDuration =
+        (7 + Math.random()*7) + "s";
+
+    heart.style.animationDelay =
+        Math.random()*3 + "s";
+
+    document.getElementById("hearts").appendChild(heart);
+
+
+    setTimeout(()=>{
+        heart.remove();
+    },15000);
+
+}
+
+
+setInterval(createHeart,700);
+
+
+/* =========================
+   MIDNIGHT CELEBRATION
+========================= */
+
+function createCelebration(){
+
+    for(let i=0;i<70;i++){
+
+        const heart=document.createElement("div");
+
+        heart.className="heart";
+
+        heart.textContent =
+            ["❤️","💗","💖","🎉","✨","🎂"][Math.floor(Math.random()*6)];
+
+        heart.style.left =
+            Math.random()*100+"%";
+
+        heart.style.bottom =
+            Math.random()*30+"%";
+
+        heart.style.fontSize =
+            (15+Math.random()*30)+"px";
+
+        heart.style.animationDuration =
+            (3+Math.random()*4)+"s";
+
+        document.getElementById("hearts").appendChild(heart);
+
+    }
+
+}
+
 </script>
+
+</body>
+</html>
